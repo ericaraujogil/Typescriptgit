@@ -1,0 +1,141 @@
+<head>
+	<script src="../models/car.js"></script>
+	<script src="../models/wheel.js"></script>
+	<script src="../controllers/controller.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row" id="coche">
+			<form name="crearcoche">
+				<div class="form-row ml-2">
+					<div class="col">
+						<label for="InputMatricula">Matricula</label>
+						<br>
+						<input type="text" class="form-control" id="InputMatricula" aria-describedby="Matricula" placeholder="Introduzca la matr&iacute;cula...">
+						<div class="invalid-feedback">
+							La matrícula debe contener 4 números y 3 letras.
+						</div>
+					</div>
+					<div class="col">
+						<label for="Marca">Marca</label>
+						<br>
+						<input type="text" class="form-control" id="Marca" placeholder="Introduzca la marca....">
+					</div>
+					<div class="col">
+						<label for="Color">Color</label>
+						<br>
+						<input type="text" class="form-control" id="Color" aria-describedby="Color" placeholder="Introduzca el color...">
+					</div>
+				</div>
+				<div class="w-100"></div>
+				<div class="col mt-2">
+					<button class="btn btn-primary" id="crearCoche" onclick="createCar(document.getElementById('InputMatricula').value,document.getElementById('Marca').value,document.getElementById('Color').value)">Submit</button>
+				</div>
+			</form>
+		</div>
+		<div class="row d-none" id="ruedas">
+			<form name="añadirruedas">
+				<div class="form-row ml-2">
+					<div class="col">
+						<label for="Marca1">Marca Rueda 1</label>
+						<br>
+						<input type="text" class="form-control mrueda" id="Marca1" aria-describedby="Marca1" placeholder="Marca rueda 1">
+
+						<label for="Diametro1">Diametro Rueda 1</label>
+						<br>
+						<input type="number" class="form-control drueda" id="Diametro1" aria-describedby="Diametro1" placeholder="Diametro rueda 1">
+						<div class="invalid-feedback">
+							El diámetro debe estar entre 0.4 y 2.
+						</div>
+					</div>
+					<div class="col">
+						<label for="Marca2">Marca Rueda 2</label>
+						<br>
+						<input type="text" class="form-control mrueda" id="Marca2" aria-describedby="Marca2" placeholder="Marca rueda 2">
+
+						<label for="Diametro2">Diametro Rueda 2</label>
+						<br>
+						<input type="number" class="form-control drueda" id="Diametro2" aria-describedby="Diametro2" placeholder="Diametro rueda 2">
+						<div class="invalid-feedback">
+							El diámetro debe estar entre 0.4 y 2.
+						</div>
+					</div>
+					<div class="col">
+						<label for="Marca3">Marca Rueda 3</label>
+						<br>
+						<input type="text" class="form-control mrueda" id="Marca3" aria-describedby="Marca3" placeholder="Marca rueda 3">
+
+						<label for="Diametro3">Diametro Rueda 3</label>
+						<br>
+						<input type="number" class="form-control drueda" id="Diametro3" aria-describedby="Diametro3" placeholder="Diametro rueda 3">
+						<div class="invalid-feedback">
+							El diámetro debe estar entre 0.4 y 2.
+						</div>
+					</div>
+					<div class="col">
+						<label for="Marca4">Marca Rueda 4</label>
+						<br>
+						<input type="text" class="form-control mrueda" id="Marca4" aria-describedby="Marca4" placeholder="Marca rueda 4">
+
+						<label for="Diametro4">Diametro Rueda 4</label>
+						<br>
+						<input type="number" class="form-control drueda" id="Diametro4" aria-describedby="Diametro4" placeholder="Diametro rueda 4">
+						<div class="invalid-feedback">
+							El diámetro debe estar entre 0.4 y 2.
+						</div>
+					</div>
+					<div class="w-100"></div>
+					<div class="col mt-2">
+						<button onclick="addWheels()" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row" id="carInfo">
+		<div class="col">
+			<p id="titulo">CAR</p>
+		</div>
+		<div class="w-100"></div>
+		<div class="col">
+			<p id="plateInfo"></p>
+		</div>
+		<div class="col">
+			<p id="brandInfo"></p>
+		</div>
+		<div class="col">
+			<p id="colorInfo"></p>
+		</div>
+		<div class="w-100"></div>
+		<div class="col">
+			<p id="tituloRuedas"> RUEDAS</p>
+		</div>
+		<div class="w-100"></div>
+		<div class="col">
+			<p id="Rueda1"></p><br>
+			<p id="rueda1m"></p><br>
+			<p id="rueda1d"></p>
+		</div>
+		<div class="col">
+			<p id="Rueda2"></p><br>
+			<p id="rueda2m"></p><br>
+			<p id="rueda2d"></p>
+		</div>
+		<div class="col">
+			<p id="Rueda3"></p><br>
+			<p id="rueda3m"></p><br>
+			<p id="rueda3d"></p>
+		</div>
+		<div class="col">
+			<p id="Rueda4"></p><br>
+			<p id="rueda4m"></p><br>
+			<p id="rueda4d"></p>
+		</div>
+	</div>
+	<p id="carInfo"></p>
+</body>
