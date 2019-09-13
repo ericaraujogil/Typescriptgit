@@ -30,7 +30,6 @@ function addWheels() {
 	for (var i = 1; i <= 4; i++) {
 		var marca = document.getElementById("Marca"+i);
 		var diametro = document.getElementById("Diametro"+i);
-		
 		if(diametro.value < 2 && diametro.value > 0.4 ){
 			console.log(`Es la rueda ${marca.value} con diametro ${diametro.value}`)
 			car.addWheel(new Wheel(diametro.value, marca.value))
@@ -39,14 +38,20 @@ function addWheels() {
 			document.getElementById("rueda"+i+"d").innerHTML = "Diametro " + diametro.value;
 			
 		}else{
-			document.getElementById("Diametro"+i).classList.add("is-invalid")
+			document.getElementById("Diametro"+i).classList.add("is-invalid");
+			comp = true;
+		}if(diametro.value == ""){
+			document.getElementById("Diametro"+i).classList.add("is-invalid");
+			comp = true;
 		}
 		
 	}
 	
 	if(!comp){
-		document.getElementById("ruedas").add("d-none");
+		document.getElementById("ruedas").classList.add("d-none");
 	}
+	
+	comp = false
 	console.log("ruedas creadas")
 	event.preventDefault();
 }
