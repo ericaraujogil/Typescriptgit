@@ -26,6 +26,7 @@ function createCar(plate, brand, color) {
 }
 
 function addWheels() {
+	var comp = false;
 	for (var i = 1; i <= 4; i++) {
 		var marca = document.getElementById("Marca"+i);
 		var diametro = document.getElementById("Diametro"+i);
@@ -42,7 +43,10 @@ function addWheels() {
 		}
 		
 	}
-
+	
+	if(!comp){
+		document.getElementById("ruedas").add("d-none");
+	}
 	console.log("ruedas creadas")
 	event.preventDefault();
 }
