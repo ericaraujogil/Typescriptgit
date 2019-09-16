@@ -25,11 +25,17 @@
 						<label for="Marca">Marca</label>
 						<br>
 						<input type="text" class="form-control" id="Marca" placeholder="Introduzca la marca....">
+						<div class="invalid-feedback">
+							Debes insertar una marca.
+						</div>
 					</div>
 					<div class="col">
 						<label for="Color">Color</label>
 						<br>
 						<input type="text" class="form-control" id="Color" aria-describedby="Color" placeholder="Introduzca el color...">
+						<div class="invalid-feedback">
+							Debes poner un color.
+						</div>
 					</div>
 				</div>
 				<div class="w-100"></div>
@@ -97,7 +103,7 @@
 			</form>
 		</div>
 	</div>
-	<div class="row ml-2" id="carInfo">
+	<div class="row ml-2 d-none" id="carInfo">
 		<div class="col">
 			<p id="titulo">CAR</p>
 		</div>
@@ -137,5 +143,4 @@
 			<p id="rueda4d"></p>
 		</div>
 	</div>
-	<p id="carInfo"></p>
 </body>

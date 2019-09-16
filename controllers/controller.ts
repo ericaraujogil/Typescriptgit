@@ -48,6 +48,7 @@ function addWheels() {
 	
 	if(!comp){
 		document.getElementById("ruedas").add("d-none");
+		
 	}
 	console.log("ruedas creadas")
 	event.preventDefault();
